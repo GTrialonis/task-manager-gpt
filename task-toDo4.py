@@ -39,7 +39,7 @@ def load_archive_done_tasks():
 
 def save_tasks():
     with open("/Users/georgiostrialonis/task_list2.txt", "w") as file:
-        file.write(json.dumps(tasks))
+        file.write(json.dumps(tasks))  # Overwrite the file
 
 def display_tasks():
     task_str = "\n".join(
@@ -127,7 +127,7 @@ def display_notes(location=(600, 100)):
                 print(f"Failed to save to {notes_file_path}: {e}")  # Print any exception
 
             # Save to the second file (append to the file)
-            archive_file_path = '/Users/georgiostrialonis/new-repo/data/archived_tasks.txt'
+            archive_file_path = '/Users/georgiostrialonis/new-repo/Data/archived_tasks.txt'
             try:
                 with open(archive_file_path, 'a') as file:
                     file.write(text_to_save)
@@ -228,7 +228,7 @@ def display_archive(location=(300, 70)):
                         # Append the edited task line to script file 'chatGPT-interface.py'
                         # where the user interacts with the saved tasks.
                         # Remove these OPTIONAL LINES if no script file exists.
-                        with open("/Users/georgiostrialonis/new-repo/data/archived_tasks.txt", "a") as file:
+                        with open("/Users/georgiostrialonis/new-repo/Data/archived_tasks.txt", "a") as file:
                             file.write(new_task_done_description + "\n")
 
                     else:
