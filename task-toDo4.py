@@ -118,7 +118,7 @@ def display_notes(location=(600, 100)):
             text_to_save = notes_values['-NOTES-'].rstrip() + '\n'
 
             # Save to the first file (overwrite the file)
-            notes_file_path = '/Users/georgiostrialonis/notes-taken.txt'
+            notes_file_path = '/Users/georgiostrialonis/new-repo/notes-taken.txt'
             try:
                 with open(notes_file_path, 'a') as file:
                     file.write(text_to_save)
