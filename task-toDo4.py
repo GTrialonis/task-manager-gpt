@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/Users/georgiostrialonis/chatgpt_retrieval/chatgpt-retrieval')
+sys.path.append('/Users/georgiostrialonis/new-repo/chatgpt-retrieval')
 # print('the sys path is: ',sys.path)  # for debugging
 import subprocess # --- new line
 import PySimpleGUI as sg
@@ -22,7 +22,7 @@ def threaded_search_weather(city):
 
 def load_tasks():
     try:
-        with open("/Users/georgiostrialonis/task_list2.txt", "r") as file:
+        with open("/Users/georgiostrialonis/new-repo/task_list2.txt", "r") as file:
             content = file.read()
             return json.loads(content) if content else []
     except FileNotFoundError:
@@ -30,7 +30,7 @@ def load_tasks():
 
 def load_archive_done_tasks():
     try:
-        with open("/Users/georgiostrialonis/arch_tasks_done.txt", "r") as file:
+        with open("/Users/georgiostrialonis/new-repo/arch_tasks_done.txt", "r") as file:
             content2 = file.read()
             loaded_content = json.loads(content2) if content2 else []
             return loaded_content
@@ -79,7 +79,7 @@ def search_weather(city):
         return "Error: Invalid response format."
 
 def delete_archive(archive_window):
-    with open("/Users/georgiostrialonis/arch_tasks_done.txt", "w") as file:
+    with open("/Users/georgiostrialonis/new-repo/arch_tasks_done.txt", "w") as file:
         file.write(json.dumps([]))
     archive_window["-DONE-"].update("Archive Deleted permanently")
     archive_window["-DONE-"].update("")
@@ -127,7 +127,7 @@ def display_notes(location=(600, 100)):
                 print(f"Failed to save to {notes_file_path}: {e}")  # Print any exception
 
             # Save to the second file (append to the file)
-            archive_file_path = '/Users/georgiostrialonis/chatgpt_retrieval/chatgpt-retrieval/data/archived_tasks.txt'
+            archive_file_path = '/Users/georgiostrialonis/new-repo/data/archived_tasks.txt'
             try:
                 with open(archive_file_path, 'a') as file:
                     file.write(text_to_save)
@@ -192,7 +192,7 @@ def display_archive(location=(300, 70)):
                     del archive[task_num_to_delete]
 
                     # Save after deleting
-                    with open("/Users/georgiostrialonis/arch_tasks_done.txt", "w") as f:
+                    with open("/Users/georgiostrialonis/new-repo/arch_tasks_done.txt", "w") as f:
                         json.dump(archive, f)
                 else:
                     sg.popup_error("Invalid task number. Try again!")
@@ -221,14 +221,14 @@ def display_archive(location=(300, 70)):
                         ] = new_task_done_description
                         # Save edited archive
                         with open(
-                            "/Users/georgiostrialonis/arch_tasks_done.txt", "w"
+                            "/Users/georgiostrialonis/new-repo/arch_tasks_done.txt", "w"
                         ) as f:
                             json.dump(archive, f)
                         # ------ OPTIONAL LINES ------
                         # Append the edited task line to script file 'chatGPT-interface.py'
                         # where the user interacts with the saved tasks.
                         # Remove these OPTIONAL LINES if no script file exists.
-                        with open("/Users/georgiostrialonis/chatgpt_retrieval/chatgpt-retrieval/data/archived_tasks.txt", "a") as file:
+                        with open("/Users/georgiostrialonis/new-repo/data/archived_tasks.txt", "a") as file:
                             file.write(new_task_done_description + "\n")
 
                     else:
@@ -289,27 +289,27 @@ while True:
         display_notes()
 # ***** ------------------- LANGCHAIN ------ ********
     if event == "LangChain":
-        with open('/Users/georgiostrialonis/task-toDo4-error-log.txt', 'a') as f:
+        with open('/Users/georgiostrialonis/new-repo/Logs/task-toDo4-error-log.txt', 'a') as f:
             f.write("LangChain button was clicked.\n")
 
     # Log information about the environment
-        with open('/Users/georgiostrialonis/task-toDo4-logfile.txt', 'w') as f:
+        with open('/Users/georgiostrialonis/new-repo/Logs/task-toDo4-logfile.txt', 'w') as f:
             f.write(f"Current Conda environment: {os.environ.get('CONDA_DEFAULT_ENV', 'No active environment')}\n")
-        with open('/Users/georgiostrialonis/task-env_log.txt', 'w') as f:
+        with open('/Users/georgiostrialonis/new-repo/Logs/task-env_log.txt', 'w') as f:
             for key, value in os.environ.items():
                 f.write(f"{key}: {value}\n")
 
     # Now launch chatGPT-interface.py
         process = subprocess.Popen(
-    ['/bin/bash', '-c', 'python3 /Users/georgiostrialonis/chatgpt_retrieval/chatgpt-retrieval/chatGPT-interface.py'],
+    ['/bin/bash', '-c', 'python3 /Users/georgiostrialonis/new-repo/chatGPT-interface.py'],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE
 )
         # ---- This can also be removed. Used for debugging----
         stdout, stderr = process.communicate()
-        with open('/Users/georgiostrialonis/task-toDo4-output-log.txt', 'wb') as f:
+        with open('/Users/georgiostrialonis/new-repo/Logs/task-toDo4-output-log.txt', 'wb') as f:
             f.write(stdout)
-        with open('/Users/georgiostrialonis/task-toDo4-error-log.txt', 'wb') as f:
+        with open('/Users/georgiostrialonis/new-repo/Logs/task-toDo4-error-log.txt', 'wb') as f:
             f.write(stderr)
         # ----------------------------------------
     if event == "Get Weather":
@@ -406,13 +406,13 @@ while True:
                 # Add the newly archived task to script file 'chatGPT-interface.py'
                 # for interaction with the user.
                 # Else, delete these OPTIONAL lines.
-                with open("/Users/georgiostrialonis/chatgpt_retrieval/chatgpt-retrieval/data/archived_tasks.txt", "a") as file:
+                with open("/Users/georgiostrialonis/new-repo/Data/archived_tasks.txt", "a") as file:
                     file.write(new_description + "\n")
                 # ------ END of OPTIONAL LINES ----
 
         # Convert back to list and save the archive
         archive = list(archive_dict.values())
-        with open("/Users/georgiostrialonis/arch_tasks_done.txt", "w") as f:
+        with open("/Users/georgiostrialonis/new-repo/arch_tasks_done.txt", "w") as f:
             json.dump(archive, f)
 
         # Refresh the archive
