@@ -38,7 +38,7 @@ def load_archive_done_tasks():
         return []
 
 def save_tasks():
-    with open("/Users/georgiostrialonis/task_list2.txt", "w") as file:
+    with open("/Users/georgiostrialonis/new-repo/task_list2.txt", "w") as file:
         file.write(json.dumps(tasks))  # Overwrite the file
 
 def display_tasks():
@@ -96,7 +96,7 @@ def display_notes(location=(600, 100)):
 
     # Load and display the notes from the file and disable the 'SAVE' button
     try:
-        with open('/Users/georgiostrialonis/notes-taken.txt', 'r') as file:
+        with open('/Users/georgiostrialonis/new-repo/notes-taken.txt', 'r') as file:
             notes_content = file.read()
             notes_window['-NOTES-'].update(notes_content)
             notes_window['-SAVE-'].update(disabled=True)  # Disable the SAVE button initially
