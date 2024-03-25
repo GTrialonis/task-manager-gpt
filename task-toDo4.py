@@ -1,3 +1,4 @@
+#!/Users/georgiostrialonis/anaconda3/anaconda3/envs/langCh/bin/py
 import sys
 sys.path.append('/Users/georgiostrialonis/new-repo/chatgpt-retrieval')
 import subprocess # --- new line
