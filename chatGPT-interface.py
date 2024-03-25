@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 import subprocess
 import traceback
 import sys
@@ -9,19 +10,19 @@ from datetime import datetime
 from docx import Document
 import pandas as pd
 from langchain.chains import ConversationalRetrievalChain, RetrievalQA
-from langchain.chat_models import ChatOpenAI
-from langchain.document_loaders import DirectoryLoader, TextLoader
-from langchain.embeddings import OpenAIEmbeddings
+from langchain_community.chat_models import ChatOpenAI
+from langchain_community.document_loaders import DirectoryLoader, TextLoader
+from langchain_community.embeddings import OpenAIEmbeddings
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
-from langchain.vectorstores import Chroma
-from constants import gmail_apiKey
-from langchain.agents.agent_toolkits import GmailToolkit
-from langchain.llms import OpenAI
+from langchain_community.vectorstores import Chroma
+# from constants import gmail_apiKey
+from langchain_community.agent_toolkits import GmailToolkit
+from langchain_community.llms import OpenAI
 from langchain.agents import initialize_agent, AgentType
 
-
-os.environ["OPENAI_API_KEY"] = gmail_apiKey
+load_dotenv()
+#os.environ["OPENAI_API_KEY"] = apikey
 
 def extract_text_from_pdf(pdf_path):
     with pdfplumber.open(pdf_path) as pdf:
@@ -73,7 +74,7 @@ if PERSIST and os.path.exists("persist"):
 else:
     #loader = TextLoader("data/cat.pdf")  # Use this line if you only need data.txt
     # Initialize with a default file or an empty string if you don't want to load a file at startup
-    filename = "/Users/georgiostrialonis/chatgpt_retrieval/chatgpt-retrieval/data/archived_tasks.txt"  # This is your default file to start with
+    filename = "/Users/georgiostrialonis/new-repo/Data/archived_tasks.txt"  # This is your default file to start with
     #loader = TextLoader("data/myPoems.txt") # choose file to interrogate
     #loader = DirectoryLoader("data/data.txt")
     
@@ -104,18 +105,21 @@ current_date = datetime.now().strftime("%Y-%m-%d")
 # Define the layout
 layout = [
     [sg.Text(current_date, key='-DATE-', pad=(5, 10), font=("Helvetica", 12))],
-    [sg.Text('Select chatGPT model', font=("Helvetica", 12)), sg.Combo(['gpt-4-turbo-preview', 'gpt-4', 'gpt-3.5-turbo-16k'], key='-MODEL-', default_value='gpt-4-turbo-preview', enable_events=False), sg.B('Select File', key="-SELECT-"), sg.Text("No file selected", key='-FILE-')],
+    [sg.Text('Select chatGPT model', font=("Helvetica", 12)), sg.Combo(['gpt-4-turbo-preview', 'gpt-4', 'gpt-3.5-turbo-16k'],
+                                key='-MODEL-', default_value='gpt-4-turbo-preview', enable_events=False),
+                                sg.B('Select File', key="-SELECT-"), sg.Text("No file selected", key='-FILE-')],
     [sg.Multiline(key='-OUTPUT-', size=(80, 15), autoscroll=True, disabled=True, font=("Helvetica", 16)),
      sg.Column([
          [sg.Button('Copy', font=('Helvetica', 16), size=(6, 1),key='-COPY-')],
          [sg.Button('Save', font=('Helvetica', 16), size=(6, 1),key='-SAVE-')],
          [sg.Button('Exit', font=('Helvetica', 16), size=(6, 1),key='-EXIT-')],
          [sg.Button('Clear', font=('Helvetica', 16), size=(6, 1),key='-CLEAR-', button_color=('white', 'brown'))],
-         [sg.Button('', image_filename='/Users/georgiostrialonis/chatgpt_retrieval/chatgpt-retrieval/Gmail-Logo-2004-2010.png', key='-GMAIL-', tooltip='Search & Send Gmail')],
+         # [sg.Button('', image_filename='/Users/georgiostrialonis/new-repo/Gmail-Logo-2004-2010.png', key='-GMAIL-', tooltip='Search & Send Gmail')],
 
      ])],
     [sg.InputText(key='-PROMPT-', size=(80, 1), do_not_clear=False, enable_events=True, font=("Helvetica", 15))],
-    [sg.Button('Send', font=('Helvetica', 14), size=(5, 1),bind_return_key=True), sg.Button("Clear File Selected", font=('Helvetica', 14), size=(15, 1), key='-CLEARFILE-', button_color=('White', 'Brown'))]
+    [sg.Button('Send', font=('Helvetica', 14), size=(5, 1),bind_return_key=True), sg.Button("Clear File Selected",
+                                    font=('Helvetica', 14), size=(15, 1), key='-CLEARFILE-', button_color=('White', 'Brown'))]
 ]
 
 # Create the window
@@ -168,8 +172,8 @@ while True:
         
 
     # Copy chat responses to clipboard
-    if event == '-GMAIL-':
-        subprocess.Popen(['/Users/georgiostrialonis/opt/anaconda3/envs/langCh/bin/python3.11', '/Users/georgiostrialonis/chatgpt_retrieval/chatgpt-retrieval/gmail.py'], cwd='/Users/georgiostrialonis/chatgpt_retrieval/chatgpt-retrieval')  # Set this to the directory containing credentials.json)
+    # if event == '-GMAIL-':
+    #     subprocess.Popen(['/Users/georgiostrialonis/opt/anaconda3/envs/langCh/bin/python3.11', '/Users/georgiostrialonis/chatgpt_retrieval/chatgpt-retrieval/gmail.py'], cwd='/Users/georgiostrialonis/chatgpt_retrieval/chatgpt-retrieval')  # Set this to the directory containing credentials.json)
 
     
 
@@ -195,7 +199,7 @@ while True:
                 try:
                     text_content = docx_to_txt(filename)
                 # system expects a file path
-                    temp_filename = '/Users/georgiostrialonis/chatgpt_retrieval/chatgpt-retrieval/temp_extracted_text.txt'
+                    temp_filename = '/Users/georgiostrialonis/new-repo/temp_extracted_text.txt'
                     with open(temp_filename, 'w', encoding='utf-8') as temp_file:
                         temp_file.write(text_content)
                 # Now update your loader to use the temporary file
@@ -207,7 +211,7 @@ while True:
                 
                 try:
                     text_content = extract_text_from_pdf(filename)
-                    temp_filename = '/Users/georgiostrialonis/chatgpt_retrieval/chatgpt-retrieval/temp_extracted_text.txt'
+                    temp_filename = '/Users/georgiostrialonis/new-repo/temp_extracted_text.txt'
                     with open(temp_filename, 'w', encoding='utf-8') as temp_file:
                         temp_file.write(text_content)
                     loader = TextLoader(temp_filename)
@@ -227,7 +231,7 @@ while True:
             elif filename.lower().endswith('.xlsx'):
                 try:
                     text_content = xlsx_to_text(filename)
-                    temp_filename = '/Users/georgiostrialonis/chatgpt_retrieval/chatgpt-retrieval/temp_extracted_text.txt'
+                    temp_filename = '/Users/georgiostrialonis/new-repo/temp_extracted_text.txt'
                     with open(temp_filename, 'w', encoding='utf-8') as temp_file:
                         temp_file.write(text_content)
                     loader = TextLoader(temp_filename)

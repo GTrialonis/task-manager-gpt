@@ -1,0 +1,30 @@
+PATH: /Users/georgiostrialonis/anaconda3/anaconda3/envs/langCh/bin:/Users/georgiostrialonis/anaconda3/anaconda3/condabin:/Users/georgiostrialonis/.local/bin:/Applications/PyCharm CE.app/Contents/bin:/Users/georgiostrialonis/Library/Python/3.9/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/georgiostrialonis/.cargo/bin
+GSETTINGS_SCHEMA_DIR_CONDA_BACKUP: 
+CONDA_DEFAULT_ENV: langCh
+CONDA_EXE: /Users/georgiostrialonis/anaconda3/anaconda3/bin/conda
+JAVA_HOME: /Library/Java/JavaVirtualMachines/jdk-17.0.4.jdk/Contents/Home
+CONDA_PYTHON_EXE: /Users/georgiostrialonis/anaconda3/anaconda3/bin/python
+COMMAND_MODE: unix2003
+CONDA_PREFIX: /Users/georgiostrialonis/anaconda3/anaconda3/envs/langCh
+_CE_M: 
+LOGNAME: georgiostrialonis
+XPC_SERVICE_NAME: application.com.jetbrains.pycharm.ce.11924637.40659496
+PWD: /Users/georgiostrialonis/new-repo
+PYCHARM_HOSTED: 1
+CONDA_SHLVL: 2
+__CFBundleIdentifier: com.jetbrains.pycharm.ce
+PYTHONPATH: /Users/georgiostrialonis/new-repo
+SHELL: /bin/zsh
+PYTHONIOENCODING: UTF-8
+OLDPWD: /
+USER: georgiostrialonis
+TMPDIR: /var/folders/8t/_4mbgx3d6yl3r8n7mry8jh940000gn/T/
+SSH_AUTH_SOCK: /private/tmp/com.apple.launchd.TZeFnps1XW/Listeners
+_CE_CONDA: 
+XPC_FLAGS: 0x0
+PYTHONUNBUFFERED: 1
+__CF_USER_TEXT_ENCODING: 0x1F5:0x0:0x2
+CONDA_PROMPT_MODIFIER: (langCh) 
+GSETTINGS_SCHEMA_DIR: /Users/georgiostrialonis/anaconda3/anaconda3/share/glib-2.0/schemas
+LC_CTYPE: en_GB.UTF-8
+HOME: /Users/georgiostrialonis
