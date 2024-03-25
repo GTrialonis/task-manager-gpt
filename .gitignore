@@ -3,5 +3,5 @@ data/archived_tasks.txt
 notes-taken.txt
 arc-tasks-done.txt
 task_list2.txt
+__pycache__/
 .DS_Store
-__pycache__
