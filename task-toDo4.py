@@ -1,9 +1,7 @@
 import sys
 sys.path.append('/Users/georgiostrialonis/new-repo/chatgpt-retrieval')
-# print('the sys path is: ',sys.path)  # for debugging
 import subprocess # --- new line
 import PySimpleGUI as sg
-# import traceback
 import json
 from datetime import datetime
 import requests

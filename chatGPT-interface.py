@@ -1,6 +1,4 @@
 import os
-from dotenv import load_dotenv
-import subprocess
 import traceback
 import sys
 import pdfplumber
@@ -12,17 +10,14 @@ import pandas as pd
 from langchain.chains import ConversationalRetrievalChain, RetrievalQA
 from langchain_community.chat_models import ChatOpenAI
 from langchain_community.document_loaders import DirectoryLoader, TextLoader
-from langchain_community.embeddings import OpenAIEmbeddings
+# from langchain_openai import OpenAIEmbeddings
+from langchain_community.embeddings import OpenAIEmbeddings # this will be deprecated? Use the above instead?
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 from langchain_community.vectorstores import Chroma
-# from constants import gmail_apiKey
-from langchain_community.agent_toolkits import GmailToolkit
-from langchain_community.llms import OpenAI
-from langchain.agents import initialize_agent, AgentType
+from constants import OPENAI_API_KEY
 
-load_dotenv()
-#os.environ["OPENAI_API_KEY"] = apikey
+os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 
 def extract_text_from_pdf(pdf_path):
     with pdfplumber.open(pdf_path) as pdf:
