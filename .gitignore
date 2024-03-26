@@ -1,7 +1,8 @@
 constants.py
 data/archived_tasks.txt
 notes-taken.txt
-arc-tasks-done.txt
+arch_tasks_done.txt
+temp_extracted_text.txt
 task_list2.txt
 __pycache__/
 .DS_Store
