@@ -95,7 +95,7 @@ def display_notes(location=(600, 100)):
 
     # Load and display the notes from the file and disable the 'SAVE' button
     try:
-        with open('/Users/georgiostrialonis/new-repo/notes-taken.txt', 'r') as file:
+        with open('/Users/georgiostrialonis/new-repo/Data/notes-taken.txt', 'r') as file:
             notes_content = file.read()
             notes_window['-NOTES-'].update(notes_content)
             notes_window['-SAVE-'].update(disabled=True)  # Disable the SAVE button initially
@@ -117,7 +117,7 @@ def display_notes(location=(600, 100)):
             text_to_save = notes_values['-NOTES-'].rstrip() + '\n'
 
             # Save to the first file (overwrite the file)
-            notes_file_path = '/Users/georgiostrialonis/new-repo/notes-taken.txt'
+            notes_file_path = '/Users/georgiostrialonis/new-repo/Data/notes-taken.txt'
             try:
                 with open(notes_file_path, 'a') as file:
                     file.write(text_to_save)
@@ -146,8 +146,6 @@ def display_notes(location=(600, 100)):
             notes_window['-SAVE-'].update(disabled=False)
 
     notes_window.close()
-
-### ---------------------------------------------------------------------
 
 def display_archive(location=(300, 70)):
     archive_window_layout = [
@@ -404,10 +402,11 @@ while True:
                 # ------- OPTIONAL LINES ----------
                 # Add the newly archived task to script file 'chatGPT-interface.py'
                 # for interaction with the user.
-                # Else, delete these OPTIONAL lines.
                 with open("/Users/georgiostrialonis/new-repo/Data/archived_tasks.txt", "a") as file:
                     file.write(new_description + "\n")
-                # ------ END of OPTIONAL LINES ----
+                # ------ Add the same archived task to 'notes-taken.txt' -------
+                with open("/Users/georgiostrialonis/new-repo/Data/notes-taken.txt", "a") as file:
+                    file.write(new_description + "\n")
 
         # Convert back to list and save the archive
         archive = list(archive_dict.values())

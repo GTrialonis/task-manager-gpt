@@ -1,4 +1,9 @@
 constants.py
+encryption_utils.py
+.env
+.salt
+key_generator.py
+filekey.key
 data/archived_tasks.txt
 notes-taken.txt
 arch_tasks_done.txt
