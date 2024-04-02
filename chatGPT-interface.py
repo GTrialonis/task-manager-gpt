@@ -23,6 +23,10 @@ vectorstore = None
 index = None
 filename = None
 
+# Add these paths at the start of your script
+ARCHIVED_TASKS_FILE = '/Users/georgiostrialonis/new-repo/Data/archived_tasks.txt'  # update path
+NOTES_TAKEN_FILE = '/Users/georgiostrialonis/new-repo/Data/notes-taken.txt'  # update path
+
 def extract_text_from_pdf(pdf_path):
     with pdfplumber.open(pdf_path) as pdf:
         text = ''
@@ -131,11 +135,13 @@ layout = [
      ])],
     [sg.InputText(key='-PROMPT-', size=(80, 1), do_not_clear=False, enable_events=True, font=("Helvetica", 15))],
     [sg.Button('Send', font=('Helvetica', 14), size=(5, 1), bind_return_key=True), sg.Button("Clear File Selected",
-                                                                                             font=('Helvetica', 14),
-                                                                                             size=(15, 1),
-                                                                                             key='-CLEARFILE-',
-                                                                                             button_color=(
-                                                                                             'White', 'Brown'))]
+                                font=('Helvetica', 14), size=(15, 1), key='-CLEARFILE-', button_color=('White', 'Brown')),
+     sg.Button('Create Encryption Key', font=('Helvetica', 14), size=(19, 1), button_color=('white', 'green'), key='-ENCRYPTION-'),
+     sg.Text('Ask:', font=("Helvetica", 14)),
+     sg.Button('Archived Tasks', font=('Helvetica', 14), size=(13, 1), button_color=('Black', 'LightGrey'), key='-ASK_ARCHIVED-'),
+     sg.Button('Notes', font=('Helvetica', 14), size=(7, 1), button_color=('Black', 'LightGrey'), key='-ASK_NOTES-')
+     ],
+
 ]
 
 # Create the window
@@ -186,6 +192,16 @@ while True:
         # Force focus back to the input field
         window['-PROMPT-'].TKEntry.focus_force()
 
+    if event == '-ASK_ARCHIVED-':
+        filename = ARCHIVED_TASKS_FILE
+        window['-FILE-'].update(os.path.basename(filename))  # Just the filename for display
+        loader = TextLoader(filename)  # Update your loader with the new file
+        # Additional code to interact with the file...
+
+    if event == '-ASK_NOTES-':
+        filename = NOTES_TAKEN_FILE
+        window['-FILE-'].update(os.path.basename(filename))  # Just the filename for display
+        loader = TextLoader(filename)  # Update your loader with the new file
 
     if event == '-COPY-':
         responses = values['-OUTPUT-']
