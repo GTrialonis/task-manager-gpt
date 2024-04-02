@@ -1,0 +1,213 @@
+# Archived tasks DONE
+1. Εβαλα χρήματα στην ΠΕΙΡΑΙΩΣ για το δάνειο OK 2023-11-12. Τα χρήματα θα τα τραβήξει η τράπεζα.
+2. Πλήρωσα την ΔΕΗ, 153,00 ευρώ. OK 2023-11-13
+3. Πληρώθηκαν οι κάρτες VISA. OK 2023-11-14
+4. Εβαλα 460,00 στην Eurobank για το δένειο σπιτιού από δικό μου λογαριασμό Εθνικής. OK 2023-11-23
+5. a) I have sent email, 21/Nov., to TOTALAV requesting to unsubscribe and to respond, b) Stopped payments thru PayPal.  OK 2023-11-23
+6. Εβαλα 460,00 στην Eurobank για το δένειο σπιτιού από δικό μου λογαριασμό Εθνικής. OK 2023-11-23 OK 2023-11-25
+7. a) I have sent email, 21/Nov., to TOTALAV requesting to unsubscribe and to respond, b) Stopped payments thru PayPal.  OK 2023-11-23 OK 2023-11-25
+8. Πλήρωσα τους φόρους για τον Νοέμβριο στις 2023-11-26
+9. H Πόπη πλήρωσε το σταθερό τηλέφωνο, 86,53 ευρώ. OK 2023-11-30
+10. Πλήρωσα 101 ευρώ κοινόχρηστα Νοεμβρίου από δικό μου λογαριασμό Εθνικής. OK 2023-12-05
+ΕΒΑΛΑ χρήματα στην Eurobank, 150 euros, για πληρωμή καρτών. OK 2023-12-09 OK 2023-12-09 OK 2023-12-09
+Εβαλα 100 ευρώ στην ΠΕΙΡΑΙΩΣ για το μικρό ασφάλιστρο. OK 2023-12-09
+Κατέθεσα 450 ευρώ στην ΠΕΙΡΑΙΩΣ από ΑΤΜ και από τον λογαριαμό μου 120 ευρώ για πληρωμή, 571 ευρώ,  δανείου. OK 2023-12-10
+Πλήρωσα τα τέλη κυκλοφορίας, 225, 00 ευρώ. OK 2023-12-11
+Πλήρωσα τις πιστωτικές κάρτες VISA, δική μου και Πόπης, 150 ευρώ. OK 2023-12-12
+Date: 12 Dec. 2023 -- Αγόρασα 1 λάμπα, 2,27 ευρώ και άλλες δύο λάμπες, 5,60 ευρώ για τις ανάγκες του χωλ της πολυκατοικίας. Σύνολο 7,87 ευρώ.
+Date: 13 Dec. 2023 -- Σήμερα δεν έκανα σχεδόν τίποτε. Ενιωθα κουρασμένος από το πρωί παρόλο που η ημέρα ήταν ηλιόλουστη. Η Πόπη σε διπλή ξενάγηση.
+
+------- INSTRUCTIONS FOR SETTING THE TIMER PLUG -----
+
+General Information
+1.	The Timer has a total of 8 ON/OFF programs.
+2.	With MANUAL, ON/AUTO/MANUAL, OFF you can make the required setting easily.
+3.	By clicking the 12/24-hour button you alternate between 12-hour to 24-hour mode.
+4.	The Summer time function is very useful for areas using the summer time system.
+5.	There are 16 combinations of days or blocks of days available for this Timer, the following (combinations are separated with |): Mon | Tue | Wed | Thu | Fri | Sat | Sun |Mon, Tue, Wed, Thu, Fri, Sat, Sun | Mon, Tue, Wed, Thu, Fri | Sat, Sun | Mon, Tue, Wed, Thu, Fri, Sat | Mon, Wed, Fr | Tue, Thu, Sat | Mon, Tue, Wed | Thu, Fri, Sat | Mon, Wed, Fri |
+6.	Click the RANDOM button to make the settings execute with a random delay of 0-32 minutes. Press RANDOM again to cancel the operation.
+
+How to set the summer time function:
+1.	When in AUOT MODE, press two buttons, CLOCK and ON/AUTO/OFF, simultaneously. The LCD will show SUMMER.
+2.	At the same time the clock will be set one hour back automatically.
+3.	Press the two buttons again, CLOCK and ON/AUTO/OFF simultaneously, to revert to Winter time.
+
+Initial Operation
+1.	Plug the Timer into a regular 230/240 Volt household power point and turn the power on.
+2.	Leave for approximately 12 hours to charge the Memory Back Up batteries.
+3.	After charging, clear all current information by pressing the MASTER CLEAR button with a sharp pointed object such as a pen or pencil.
+4.	The Timer is now ready to be set up for use.
+
+Setting the Current Time
+1.	Press the CLOCK button and hold, simultaneously press the WEEK button until the actual day is displayed. Continue by pressing the HOUR or the MINUTE button until the current hour or minute is displayed. During the setting, the buttons WEEK, HOUR or MINUTE can be held down for rapid forward progression.
+2.	Release both buttons. The week and time are thus set.
+3.	To reset incorrect time, repeat above steps.
+
+Setting Programs
+1.	Click on the TIMER button. The first ON setting can be made now.
+2.	Press the WEEK button to set the day or blocks of days. Set the time by pressing the HOUR button and do the same with the MINUTE button.
+3.	Press the TIMER button again to finish the first ON setting and enter into the first OFF setting. By repeating step 2 to make the first OFF setting.
+4.	Press the TIMER function again to finish the first OFF setting and enter into the second ON setting. Repeat steps 2 and 3 to program the remaining settings.
+5.	After completing the settings, press the CLOCK button and the Timer is ready for operation.
+
+Example program settings:
+Suppose you want to set the Timer ON at 18:15 hours and OFF at 22:15 hours. Take the following steps:
+1.	Press the TIMER button. The LCD will display 1_ON.
+2.	Press the WEEK button until the LCD displays “MON, TUE, WED, THU, FRI, SAT, SUN”
+3.	Press the HOUR button until the LCD displays 6:00PM or 18:00
+4.	Press the MINUTE button until the LCD displays 6:15PM or 18:15
+5.	Press the TIMER button for the LCD to display 1_OFF.
+6.	Repeat steps 3 and 4 until the LCD displays 10:15PM or 22:15.
+7.	Press the RES/RCL button (the RESET / RECALL button) to reset programs, press the RES/RCL button again to recall selected programs. That button will cancel some programs or recall others.
+
+TIP: When verifying [selected] program ensure that the settings do not overlap, especially when using the block option.
+
+Manual ON/AUTO/MANUAL OFF setting
+1.	Press the ON/AUTO/OFF button to cycle through the modes in turn.
+2.	In MANUAL ON or MANUAL OFF mode, the Timer does not operate as settings in AUTO mode.
+3.	When the mode is switched from MANUAL to AUTO, the Timer will keep the settings of MANUAL until the next timer setting.
+
+12/24-Hour Mode
+Press the CLOCK button simultaneously with the TIMER button. This switches from 12-hour to 24-hour mode.
+For video instructions go to Youtube address: https://www.youtube.com/watch?v=eOCwRi-wll0. Video title: Emos TS-ED1 (Digital Switching Socket, ON/OFF timer, 3680W, 230V).
+
+You: I want to se the Timer ON at 22:00 hours and off two hours later, and then ON again at 06:00 and OFF again two hours later. What buttons should I press in sequence?
+
+ChatGPT: To set the timer based on your requirements, follow these steps in sequence:
+
+1. Press the TIMER button to start programming the first ON time.
+2. Press the WEEK button to select the day or block of days you want this schedule to apply to.
+3. Press the HOUR button until it reaches "22" for 22:00 hours.
+4. Press the MINUTE button until it shows "00" to set the exact hour without minutes.
+5. Press the TIMER button again to confirm the first ON setting and proceed to program the first OFF setting.
+6. Press the WEEK button to select the same day or block of days for the OFF setting.
+7. Since you want it to turn OFF two hours later, press the HOUR button until it reaches "00" (this will be 00:00, which is two hours after 22:00).
+8. Press the MINUTE button to ensure it is set to "00" minutes.
+9. Press the TIMER button again to confirm the first OFF setting and start programming the second ON time.
+10. Press the WEEK button to select the same day or block of days for the second ON setting.
+11. Press the HOUR button until it reaches "06" for 06:00 hours.
+12. Press the MINUTE button until it shows "00".
+13. Press the TIMER button again to confirm the second ON setting and proceed to program the second OFF setting.
+14. Press the WEEK button to select the same day or block of days for the OFF setting.
+15. Press the HOUR button until it reaches "08" for 08:00 hours (two hours after 06:00).
+16. Press the MINUTE button to set it to "00" minutes.
+17. Press the TIMER button again to confirm the second OFF setting. 
+18. Finally, press the CLOCK button to exit programming mode and start the timer with the new settings.
+
+Make sure to adjust the WEEK button in steps 2, 6, 10, and 14 to ensure that it is set for the correct days or blocks of days as per your schedule. If you do not change the day or block of days, the timer will assume it is for the same block you initially set.
+
+You: With respect to your steps 9 and 10, i.e. having pressed the TIMER button to confirm the first OFF setting, do I need to press it again to start a new ON time?
+
+ChatGPT: Yes, after you confirm the first OFF setting, you need to press the TIMER button again to enter into the second ON setting. Then, you can repeat steps 2 and 3 to program the remaining settings.
+
+You: The Timer is set to OFF at 0:00. This is late for me. I want to set the lights OFF at 22:43 instead. What do I do?
+
+ChatGPT: To adjust the timer so that the lights turn OFF at 22:43 instead of 00:00, you can follow similar steps to the example provided with some slight modifications to set the new OFF time. Here's what you can do:
+
+1. Press the TIMER button until the LCD displays the program you want to adjust (for instance, 1_OFF if you're modifying the first OFF program).
+
+2. Press the WEEK button until the LCD displays the days you want to set. If you're keeping the same days, make sure they are still selected.
+
+3. Press the HOUR button until the LCD displays 10:00PM or 22:00.
+
+4. Press the MINUTE button until the LCD displays 10:43PM or 22:43.
+
+5. Once the new OFF time of 22:43 is displayed, press the TIMER button to save the setting.
+
+Remember to check that the new settings do not overlap with any other settings, especially if you're using the block option for scheduling multiple ON/OFF cycles. If there are any overlaps, you may need to adjust other programs accordingly. If you need to reset or recall any programs, use the RES/RCL button as mentioned in your example program settings.
+
+You: Your answer above is correct. Thank you.
+
+ChatGPT: To change the OFF time on your timer from 00:00 to 22:43, you should follow these steps:
+
+1. Press the TIMER button until the LCD displays the OFF time you want to change (for example, it might display 1_OFF if this is the first OFF setting).
+
+2. Once the OFF time you want to change is displayed, use the WEEK button to ensure that you have selected the correct day or combination of days for the change. If you want it to apply to every day of the week, make sure the LCD displays “MON, TUE, WED, THU, FRI, SAT, SUN”.
+
+3. Press the HOUR button until the LCD displays 10:00PM or 22:00.
+
+4. Press the MINUTE button until the LCD displays 10:43PM or 22:43.
+
+5. After setting the new OFF time, press the TIMER button again to save the setting. If no additional changes are required, you can leave the settings as is.
+
+Remember, if you have multiple ON/OFF programs, make sure to navigate to the correct one that you wish to change. The program number (e.g., 1_OFF) will usually be indicated on the LCD. Also, ensure that the new OFF time does not overlap with another program to avoid any conflicts.
+
+Η Πόπη έκανε επιτυχημένη υστεροσκόπηση στο Μητέρα, σήμερα 15 Δεκεμβρίου 2023.
+Δώρο: Σήμερα, 18 Δεκεμβρίου 2023 αγόρασα δώρο ένα ρολόι στην Πόπη, 109,00+24,00 διετή ασφάλεια.
+Σήμερα, 19 Δεκεμβρίου 2023, μου έκανε δώρο η Πόπη ένα ρολόι, Redmi Watch3, το ίδιο με εκείνο που της έκανα δώρο χθες. Φέρει έξτρα εγγύηση. Αγοράστηκε από το κατάστημα Plaisio που είναι στην οδό 62 Μαρτύρων 154. Αυτό που της έκανα δώρο το αγόρασα από το Public στην οδό Δαιδάλου και ήταν 10 ευρώ ακριβότερο ενώ η δική του έξτρα εγγύηση ήταν 14 ευρώ ακριβότερη.
+χθες, 20 Δεκεμβρίου 2023, έκανα αιτήσεις για Ευρωπαϊκή Κάρτα Ασφάλισης για εμένα και την Πόπη.
+Κατέθεσα 450 ευρώ στην τράπεζα Eurobank για να συμπληρωθεί το ποσό της δόσης του Δεκεμβρίου 2023. OK 2023-12-22
+Ευρωπαϊκή Κάρτα Ασφάλισης Ασθενείας -- έχω αποθηκεύσει αίτηση στο σύστημα. Να την ολοκληρώσω σε μερικές ημέρες. OK 2023-12-22
+Εστειλα με email το τροποποιημένο ασφαλιστήριο του σπιτιού σε τρεις υπαλλήλους της τράπεζας ΠΕΙΡΑΙΩΣ OK 2023-12-22
+Εφορία: Πλήρωσα τις τρεις τελευταίες δόσεις του ΕΝΦΙΑ, και τη δόση του φόρου, 245,09, για τον Δεκέμβριο. OK 2023-12-23
+Εφορία και Φόροι: Πλήρωσα τις τρεις τελευταίες δόσεις του ΕΝΦΙΑ, και τη δόση του φόρου, 245,09, για τον Δεκέμβριο. OK 2023-12-23
+Σήμερα πήγα σε τράπεζες ΠΕΙΡΑΙΩΣ, ΕΘΝΙΚΗ και EUROBANK και κατέθεσα το τροποποιημένο ασφαλιστήριο Eurolife. OK 2023-12-27
+Σήμερα έκανα λογαριασμό σύνδεσης για την Πόπη στον ιστοτόπο της ΔΕΗ, dei.gr, από τον δικό μου browser, που σημαίνει ότι οι κωδικοί έχουν αποθηκευτεί στον δικό μου google password manager λογαριασμό.
+Να καταθέσω χρήματα στην Eurobank για τις κάρτες Visa. OK 2023-12-30
+Να καταθέσω 40 ευρώ στο λογαριασμό του Βασίλη. OK 2024-01-02
+Κατέθεσα 40 ευρώ στο λογαριασμό του Βασίλη. OK 2024-01-02
+Η Πόπη πήγε σήμερα στο λογιστικό γραφείο της Αμαλίας Κωνσταντάκη και τους είπε να ξεκινήσουν την διαδικασία για την δημιουργία ατομικής επιχείρησης του Βασίλη. Εχει ορίσει ραντεβού για να πάει ο Βασίλης στο λογιστικό γραφείο.
+Σήμερα, 6 Ιανουαρίου 2024, ο Αντώνης Μαυρογιάννης έβαλε το πετρέλαιο για την πολυκατοικία. Κόστος 700 ευρώ.
+Μετέφερα 465,00 ευρώ στον λογαριασμό -316 της Eurobank για το δάνειο. Είχα ξεχάσει να κάνω την μεταφορά. OK 2024-01-06
+Από σήμερα, 8 Ιανουαρίου 2024, ο Βασίλης δεν θα ξαναπάει για εργασία στο Αεροδρόμιο. Παραιτήθηκε. Εχουμε ραντεβού με τον λογιστή Μιχάλη Ράικο για την έναρξη ατομικής επιχείρησης του Βασίλη.
+Πλήρωσα τα κοινόχρηστα Δεκεμβρίιου 2023, 22,18 ευρώ, από λογαρισμό Πόπης. OK 2024-01-08
+Να ελέγξω αν η Eurobank έχει πάρει την ληξιπρόθεσμη δόση 450,00 ευρώ που έβαλα στον λογαριασμό -316  OK 2024-01-09
+H Eurobank έχει πάρει την ληξιπρόθεσμη δόση 460,00 ευρώ που έβαλα στον λογαριασμό -316  OK 2024-01-09
+Σήμερα, 9 Ιανουαρίου 2024 γεννήθηκε ο δεύτερος εγγονός μου στην Γερμανία, ο γιος του Στέφανου και της Νίρο.
+Να καταθέσω χρήματα στην Eurobank για τις κάρτες. OK 2024-01-10
+Κατέθεσα χρήματα στην Eurobank για τις κάρτες. OK 2024-01-10
+Πλήρωσα τις πιστωτικές κάρτες της Eurobank. OK 2024-01-11
+Πλήρωσα τα κοινόχρηστα Δεκεμβρίου 2023, 22,18 ευρώ, από λογαρισμό Πόπης. OK 2024-01-08
+Ραντεβού με πνευμονολόγο στις 17 Ιανουαρίου, ώρα 09:45. OK 2024-01-17
+Περιμένω από τον Μιχάλη Πουλάκη να μου στείλει την βεβαίωση εγγραφής του Βασίλη στον ΕΦΚΑ. OK 2024-01-17
+Ραντεβού με πνευμονολόγο στις 17 Ιανουαρίου, ώρα 09:45. OK 2024-01-17
+Παραλάβαμε την καρέκλα του Βασίλη Δευτέρα, 15 Ιανουαρίου 2024.
+Ο Μιχάλης Πουλάκης μου έστειλε την Βεβαίωση Εγγραφής στον ΕΦΚΑ του Βασίλη, Τρίτη 16 Ιαν. 2024
+Πλήρωσα την ΔΕΗ, 140,00 από λογαριασμό Εθνικής Πόπης. OK 2024-01-18
+The Malwarebytes software has been renewed this Saturday, 20 Jan. 2024.
+Υπάρχουν χρήματα στον λογαριασμό -278 στην ΠΕΙΡΑΙΩΣ για το δάνειο μέχρι και τον μήνα Μάιο περίπου.
+Να πληρωθούν οι φόροι πριν το τέλος του μήνα. OK 2024-01-25
+Πληρώθηκαν οι φόροι πριν το τέλος του μήνα. OK 2024-01-25
+Να πληρωθεί η δόση του δανείου για το σπίτι, Eurobank, πριντ το τέλος του μήνα. OK 2024-02-03
+Πληρώθηκε η δόση του δανείου για το σπίτι, Eurobank, πριντ το τέλος του μήνα. OK 2024-02-03
+Κωδικός ή αριθμός πελάτη για ΔΕΥΑΗ: 044.210,1810
+Πλήρωσα τις κάρτες VISA πριν από 15/2/24 OK 2024-02-12
+Μετέφερα 460,00 από -718 σε -316 Eurobank για ληξιπρόθεσμη δόση δανείου. OK 2024-02-12
+Πλήρωσα τα κοινόχρηστα Ιανουαρίου 2024, ευρώ 67,95 OK 2024-02-12
+A couple of days ago, 14 Feb. 2024, I received a complementary copy of Camtasia 2023, which had been promised to me when I purchased version 2022.
+Η Πόπη αναχώρησε για το Αμβούργο, σήμερα 18 Φεβρουαρίου 2024.
+Πλήρωσα τον λογαριασμό σταθερού τηλεφώνου, OK 2024-02-19
+Πλήρωσα την Εφορία για τον Φεβρουαρίου,  OK 2024-02-19
+Πλήρωσα την Εφορία για τον Φεβρουάριο,  OK 2024-02-19
+Σήμερα 19 Φεβρουαρίου 2024 ο αδελφός μου Ζαχαρίας στο ΠΕΠΑΓΝΗ, εντατική, με έμφραγμα.
+Πέμπτη 22 Μαρτίου πήγα στης Ολγας και εισέπραξα 870,00 ευρώ OK 2024-02-22
+Κατέθεσα χρήματα στην Eurobank (..718), 460 euros και μεταφορά αυτών στον -316 της Πόπης, 26/Φεβ./2024 OK 2024-02-26
+Σήμερα, 4 Μαρτίου 2024, πήγα Στρατολογία για λογαριασμό του Βασίλη, επειδή η αναβολή του λήγει στις 16/3, και μου είπαν ότι μέχρι τέλος Απριλίου θα λάβει σχετικό email για να ξανακάνει την διαδικασία που έκανα τον Φεβρουάριο/Μάρτιο του 2022,δηλ. Στρατολογία και Ναυτικό Νοσοκομείο Χανίων. Πρέπει να έχει πάλι μαζέψει τα σχετικά χαρτιά / βεβαιώσεις.
+Μνημόσυνο Χαρούλας, 3 Μαρτίου 2024 OK 2024-03-04
+Σήμερα, 5 Μαρτίου 2024, ενημέρωσε ο Βασίλης ότι από αύριο έχουν απεργία οι σεκιουριτάδες στο Αμβούργο μέχρι και μεθαύριο. Συνεπώς η Πόπη θα καθυστερήση και είναι σε λίστα αναμονής για μεθαύριο. Μετά με πήρε τηλέφωνο και η Πόπη για να με ενημερώσει για το ίδιο θέμα.
+Πλήρωσα τα ασφάλιστρα, 130 ευρώ, του αυτοκινήτου. OK 2024-03-06
+Αγόρασα 30 ευρώ credit για την υπηρεσία OpenAI API. Εχει αλλάξει το σύστημα πληρωμών γι αυτή την υπηρεσία. OK 2024-03-06
+Σήμερα, 8 Μαρτίου 2024, επιστρέφει η Πόπη από Αμβούργο.
+11 Μαρτίου 2024 κατέθεσα χρήματα, 150 ευρώ, στην Eurobank (..-718), για να πληρώσω τις κάρτες.
+Πλήρωσα τους φόρους Μαρτίου σήμερα 11 Μαρτίου. OK 2024-03-11
+12 Μαρτίου 2024 πλήρωσα τα κοινόχρηστα Φεβρουαρίου, 65,72 ευρώ, από δικό μου λογαριασμό nbg.
+Ραντεβού με αγγειολόγο 15 Μαρτίου, ώρα 14:30 OK 2024-03-16
+Σάββατο ξημερώματα, 16 Μαρτίου ώρα 00:17, πλήρωσα και τις δύο πιστωτικές κάρτες της Eurobank.
+Πλήρωσα και τις δύο κάρτες Visa της Eurobank OK 2024-03-16
+Πλήρωσα και τις δύο κάρτες Visa της Eurobank OK 2024-03-16. Μία ημέρα ληξιπρόθεσμος.
+20 Μαρτίου 2024, 17:00 εξετάσεις άνω-κάτω κοιλίας εγώ και η Πόπη στο Interclinic.
+21 Μαρτίου 2024, πλήρωσα ΝΝ Ζωής, ευρώ 58,87.
+20 Μαρτίου 2024, η Πόπη κι εγώ κάναμε εξετάσεις άνω και κάτω κοιλίας στο Interclinic.
+Η Πόπη πήγε στο Αμβούργο στις 18 Φεβρουαρίου 2024.
+21 Μαρτίου 2024 κατέθεσα 30 ευρώ στο λογαριασμό του Ζαχαρία, αδελφού 40 ημέρες στο νοσοκομείο. Πριν από μια εβδομάδα περίπου είχα καταθέσει 50 ευρώ.
+Ραντεβού με ιατρό Χαρ. Τράπαλη, 22 Μαρτίου 18:45. OK 2024-03-23
+26 Μαρτίου 2024 παρέδωσα κλειστό φάκελο με 300 ευρώ στην κόρη του Κων/νου Κριτσωτάκη για να δοθεί στον Ζαχαρία.
+26 Μαρτίου 2024 Η Πόπη πούλησε 800 ευρώ χρυσαφικά που της είχε κάνει δώρο η μακαρίτισα η μαμά. Τα χρήματα αυτά προορίζονται για την εγχείρηση του Ζαχαρία. Η Πόπη επίσης μίλησε και με το αφεντικό του Ζαχαρία για την περίπτωσή του, κλπ.
+27 Μαρτίου 2024, ώρα 19:02, μετέφερα 465 ευρώ από λογαριασμό Πόπης στην Eurobank, -8316, για το δάνειο του σπιτιού.
+Πριν το τέλος Μαρτίου να καταθέσω 460 ευρώ στην Eurobank για το δάνειο σπιτιού. OK 2024-03-28
+Μετέφερα 460 ευρώ αποό Εθνική στην Eurobank για το δάνειο σπιτιού. OK 2024-03-28
+15 Μαρτίου 2024 Η Πόπη κι εγώ εξεταστήκαμε από την οφθαλμίατρο Καλυβιανάκη. Εγώ νομίζω ότι έχω κλείσει ραντεβού για 6 μήνες αργότερα. Να το επιβεβαιώσω.
+29 Μαρτίου 2024 πλήρωσα 50 ευρώ για το τηλέφωνο 2810-280325 του αδελφού μου Ζαχαρία.
+29 Μαρτίου 2024 Μέχρι σήμερα έχω δαπανήσει τα εξής ποσά για τον αδελφό μου Ζαχαρία: 1) 50 ευρώ στην Σοφία για να δείξει το CD των εξετάσεων του Ζαχαρία σε γιατρό στο Interclinic, 2) 50 ευρώ πρώτη κατάθεση σε λογαριασμό του, 3) 30 ευρώ σε λογαριασμό του, 4) 300 ευρώ για την εγχείρηση, 5) 50 ευρώ για το τηλέφωνο του Ζαχαρία (2810-280325).
+Πλήρωσα την ΔΕΗ, 140,00 ευρώ από λογαριασμό Εθνικής Πόπης. OK 2024-01-18
+Μετέφερα 460 ευρώ από Εθνική στην Eurobank για το δάνειο σπιτιού. OK 2024-03-28
