@@ -194,13 +194,13 @@ while True:
 
     if event == '-ASK_ARCHIVED-':
         filename = ARCHIVED_TASKS_FILE
-        window['-FILE-'].update(os.path.basename(filename))  # Just the filename for display
+        window['-FILE-'].update(filename)  # Just the filename for display
         loader = TextLoader(filename)  # Update your loader with the new file
         # Additional code to interact with the file...
 
     if event == '-ASK_NOTES-':
         filename = NOTES_TAKEN_FILE
-        window['-FILE-'].update(os.path.basename(filename))  # Just the filename for display
+        window['-FILE-'].update(filename)  # Just the filename for display
         loader = TextLoader(filename)  # Update your loader with the new file
 
     if event == '-COPY-':
@@ -210,7 +210,7 @@ while True:
     # Save chat responses to a file
     if event == '-SAVE-':
         responses = values['-OUTPUT-']
-        with open('/Users/georgiostrialonis/chatgpt_retrieval/chatgpt-retrieval/chat_responses.txt', 'w') as file:
+        with open('/Users/georgiostrialonis/new-repo/chat_responses.txt', 'a') as file:
             file.write(responses)
         sg.popup('Responses saved!', keep_on_top=True)
 
@@ -234,7 +234,7 @@ while True:
                     loader = TextLoader(temp_filename)
                 except Exception as e:
                     sg.popup_error(f'Failed to process Word document: {e}')
-
+# ---------------------------------------------------------------------
             elif filename.lower().endswith('.pdf'):
 
                 try:
@@ -246,7 +246,7 @@ while True:
                 except Exception as e:
                     print(f'Failed to process PDF document: {e}')
                     traceback.print_exc()  # Print the full traceback
-
+# -----------------------------------------------------------------------------
             # Process the .txt file
             elif filename.lower().endswith('.txt'):
                 try:
@@ -254,7 +254,7 @@ while True:
                     loader = TextLoader(filename)
                 except Exception as e:
                     sg.popup_error(f'Failed to process text file: {e}')
-
+# ---------------------------------------------------------------------------------
             # Process the .xlsx file
             elif filename.lower().endswith('.xlsx'):
                 try:
@@ -267,10 +267,11 @@ while True:
                     sg.popup_error(f'Failed to process Excel document: {e}')
             else:
                 sg.popup_error(f'Unsupported file type selected.')
-
+# --------------------------- να το αφαιρέσω; -----------------------------------
         else:
             # Your existing processing for .txt and .pdf files
             loader = TextLoader(filename)
+# -------------------------------------------------------------
         # Re-create the index with the new loader
         if PERSIST:
             index = VectorstoreIndexCreator(

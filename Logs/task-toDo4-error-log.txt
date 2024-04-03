@@ -2,3 +2,8 @@
   warn_deprecated(
 /Users/georgiostrialonis/anaconda3/anaconda3/envs/langCh/lib/python3.11/site-packages/langchain_core/_api/deprecation.py:117: LangChainDeprecationWarning: The class `langchain_community.chat_models.openai.ChatOpenAI` was deprecated in langchain-community 0.1.0 and will be removed in 0.2.0. Use langchain_openai.ChatOpenAI instead.
   warn_deprecated(
+2024-04-03 15:07:19.641 python3[6721:116947] TSM AdjustCapsLockLEDForKeyTransitionHandling - _ISSetPhysicalKeyboardCapsLockLED Inhibit
+/Users/georgiostrialonis/anaconda3/anaconda3/envs/langCh/lib/python3.11/site-packages/langchain_core/_api/deprecation.py:117: LangChainDeprecationWarning: The function `__call__` was deprecated in LangChain 0.1.0 and will be removed in 0.2.0. Use invoke instead.
+  warn_deprecated(
+2024-04-03 15:09:31.828 python3[6721:116947] +[CATransaction synchronize] called within transaction
+2024-04-03 15:09:42.305 python3[6721:116947] IMKClient Stall detected, *please Report* your user scenario attaching a spindump (or sysdiagnose) that captures the problem - (imkxpc_bundleIdentifierWithReply:) block performed very slowly (1.16 secs).

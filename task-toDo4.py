@@ -1,6 +1,6 @@
 #!/Users/georgiostrialonis/anaconda3/anaconda3/envs/langCh/bin/py
 import sys
-sys.path.append('/Users/georgiostrialonis/new-repo/chatgpt-retrieval')
+sys.path.append('/Users/georgiostrialonis/new-repo')
 import subprocess # --- new line
 import PySimpleGUI as sg
 import json
