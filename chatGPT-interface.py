@@ -24,8 +24,8 @@ index = None
 filename = None
 
 # Add these paths at the start of your script
-ARCHIVED_TASKS_FILE = '/Users/georgiostrialonis/new-repo/Data/archived_tasks.txt'  # update path
-NOTES_TAKEN_FILE = '/Users/georgiostrialonis/new-repo/Data/notes-taken.txt'  # update path
+ARCHIVED_TASKS_FILE = '/Users/georgiostrialonis/new-repo/Data/archived_tasks.txt'
+NOTES_TAKEN_FILE = '/Users/georgiostrialonis/new-repo/Data/notes-taken.txt'
 
 def extract_text_from_pdf(pdf_path):
     with pdfplumber.open(pdf_path) as pdf:
@@ -67,7 +67,7 @@ def interact_with_chatgpt(query, chat_history, index):
 
 
 # Enable to save to disk & reuse the model (for repeated queries on the same data)
-PERSIST = True  # Originally it was "False"
+PERSIST = False  # Originally it was "False"
 query = None
 
 if len(sys.argv) > 1:
@@ -88,7 +88,7 @@ else:
     # loader = TextLoader("data/cat.pdf")  # Use this line if you only need data.txt
     # Initialize with a default file or an empty string if you don't want to load a file at startup
     filename = "/Users/georgiostrialonis/new-repo/Data/notes-taken.txt"  # This is your default file to start with
-    # loader = TextLoader("data/myPoems.txt") # choose file to interrogate
+    loader = TextLoader("/Users/georgiostrialonis/new-repo/Data/archived_tasks.txt") # choose file to interrogate
     # loader = DirectoryLoader("data/data.txt")
 
     # Before the event loop
@@ -96,6 +96,7 @@ loader = None
 if not filename:
     pass
 else:
+    print('filename: ', filename)
     loader = TextLoader(filename)
     if PERSIST:
         index = VectorstoreIndexCreator(
@@ -130,8 +131,6 @@ layout = [
          [sg.Button('Save', font=('Helvetica', 16), size=(6, 1), key='-SAVE-')],
          [sg.Button('Exit', font=('Helvetica', 16), size=(6, 1), key='-EXIT-')],
          [sg.Button('Clear', font=('Helvetica', 16), size=(6, 1), key='-CLEAR-', button_color=('white', 'brown'))],
-         # [sg.Button('', image_filename='/Users/georgiostrialonis/new-repo/Gmail-Logo-2004-2010.png', key='-GMAIL-', tooltip='Search & Send Gmail')],
-
      ])],
     [sg.InputText(key='-PROMPT-', size=(80, 1), do_not_clear=False, enable_events=True, font=("Helvetica", 15))],
     [sg.Button('Send', font=('Helvetica', 14), size=(5, 1), bind_return_key=True), sg.Button("Clear File Selected",
@@ -235,25 +234,25 @@ while True:
                 except Exception as e:
                     sg.popup_error(f'Failed to process Word document: {e}')
 # ---------------------------------------------------------------------
-            elif filename.lower().endswith('.pdf'):
-
-                try:
-                    text_content = extract_text_from_pdf(filename)
-                    temp_filename = '/Users/georgiostrialonis/new-repo/temp_extracted_text.txt'
-                    with open(temp_filename, 'w', encoding='utf-8') as temp_file:
-                        temp_file.write(text_content)
-                    loader = TextLoader(temp_filename)
-                except Exception as e:
-                    print(f'Failed to process PDF document: {e}')
-                    traceback.print_exc()  # Print the full traceback
+#             elif filename.lower().endswith('.pdf'):
+#
+#                 try:
+#                     text_content = extract_text_from_pdf(filename)
+#                     temp_filename = '/Users/georgiostrialonis/new-repo/temp_extracted_text.txt'
+#                     with open(temp_filename, 'w', encoding='utf-8') as temp_file:
+#                         temp_file.write(text_content)
+#                     loader = TextLoader(temp_filename)
+#                 except Exception as e:
+#                     print(f'Failed to process PDF document: {e}')
+#                     traceback.print_exc()  # Print the full traceback
 # -----------------------------------------------------------------------------
-            # Process the .txt file
-            elif filename.lower().endswith('.txt'):
-                try:
-                    # For .txt files, directly use the TextLoader with the file path
-                    loader = TextLoader(filename)
-                except Exception as e:
-                    sg.popup_error(f'Failed to process text file: {e}')
+#             # Process the .txt file
+#             elif filename.lower().endswith('.txt'):
+#                 try:
+#                     # For .txt files, directly use the TextLoader with the file path
+#                     loader = TextLoader(filename)
+#                 except Exception as e:
+#                     sg.popup_error(f'Failed to process text file: {e}')
 # ---------------------------------------------------------------------------------
             # Process the .xlsx file
             elif filename.lower().endswith('.xlsx'):
