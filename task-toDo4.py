@@ -82,70 +82,68 @@ def delete_archive(archive_window):
         file.write(json.dumps([]))
     archive_window["-DONE-"].update("Archive Deleted permanently")
     archive_window["-DONE-"].update("")
-### --------------------------------------------------------------
+### --------- DISPLAY NOTES -------------------------
 def display_notes(location=(600, 100)):
-    notes_layout = [
-        [sg.Text("Take notes below")],
-        [sg.Multiline(size=(80, 15), font="Tahoma, 14", key="-NOTES-")],
-        [sg.Button("SAVE", button_color=("White", "DarkBlue"), key="-SAVE-", disabled=True), sg.Button("CLEAR"), sg.Button("EXIT")]
-    ]
-    notes_window = sg.Window(
-        "Window for taking notes", notes_layout, location=location, finalize=True
-    )
-
-    # Load and display the notes from the file and disable the 'SAVE' button
+    # Initial setup: Load existing notes
     try:
         with open('/Users/georgiostrialonis/new-repo/Data/notes-taken.txt', 'r') as file:
-            notes_content = file.read()
-            notes_window['-NOTES-'].update(notes_content)
-            notes_window['-SAVE-'].update(disabled=True)  # Disable the SAVE button initially
-    
+            notes_list = file.readlines()
     except FileNotFoundError:
-        sg.popup('Error', 'File not found. Please check file path')
+        notes_list = []
+        sg.popup('File not found. Creating a new one.', keep_on_top=True)
 
-    # Event loop to process "events"
+    notes_layout = [
+        [sg.Text("Select a note to edit:", font=("Default", 13))],
+        [sg.Listbox(values=[f"{idx+1}: {note.strip()}" for idx, note in enumerate(notes_list)],
+                    size=(90, 15), font=("Tahoma", 14), key="-NOTES-LIST-", enable_events=True)],
+        [sg.Text("Add a new note:", font=("Default", 13))],
+        [sg.Multiline(size=(90, 3), font=("Tahoma", 14), key="-NEW-NOTE-", enable_events=True)],
+        [sg.Button("Save New Note", key="-SAVE-NEW-"), sg.Button("Edit Selected Note", key="-EDIT-"),
+         sg.Button("Refresh List", key="-REFRESH-"), sg.Button("EXIT")]
+    ]
+    notes_window = sg.Window("Notes Editor", notes_layout, location=location, finalize=True)
+
     while True:
-        notes_event, notes_values = notes_window.read()
+        event, values = notes_window.read()
 
-        #print(f"Event: {notes_event}")  # Debug print for any event
-
-        if notes_event in (sg.WIN_CLOSED, 'EXIT'):  # If user closes window or clicks EXIT
+        if event in (sg.WIN_CLOSED, 'EXIT'):
             break
 
-        elif notes_event == '-SAVE-':
-            # Retrieve the text from the multiline input
-            text_to_save = notes_values['-NOTES-'].rstrip() + '\n'
+        if event == '-SAVE-NEW-':
+            # Add new note to the list and save
+            new_note = values['-NEW-NOTE-'].strip()
+            if new_note:
+                with open('/Users/georgiostrialonis/new-repo/Data/notes-taken.txt', 'a') as file:
+                    file.write(f"{new_note}\n")
+                sg.popup('New note added!', keep_on_top=True)
+                notes_window['-NEW-NOTE-'].update('')
+            else:
+                sg.popup_error('Please enter a note before saving.')
 
-            # Save to the first file (overwrite the file)
-            notes_file_path = '/Users/georgiostrialonis/new-repo/Data/notes-taken.txt'
+        elif event == '-EDIT-':
+            if values['-NOTES-LIST-']:
+                selected_note_info = values['-NOTES-LIST-'][0]
+                note_idx = int(selected_note_info.split(":")[0]) - 1
+                edited_note = sg.popup_get_text("Edit note", default_text=notes_list[note_idx].strip())
+                if edited_note is not None:
+                    notes_list[note_idx] = edited_note + '\n'
+                    with open('/Users/georgiostrialonis/new-repo/Data/notes-taken.txt', 'w') as file:
+                        file.writelines(notes_list)
+                    sg.popup('Note updated successfully!', keep_on_top=True)
+                else:
+                    sg.popup_error('Edit canceled.')
+
+        elif event == '-REFRESH-':
+            # Refresh the list of notes
             try:
-                with open(notes_file_path, 'a') as file:
-                    file.write(text_to_save)
-            
-            except Exception as e:
-                print(f"Failed to save to {notes_file_path}: {e}")  # Print any exception
-
-            # Save to the second file (append to the file)
-            archive_file_path = '/Users/georgiostrialonis/new-repo/Data/archived_tasks.txt'
-            try:
-                with open(archive_file_path, 'a') as file:
-                    file.write(text_to_save)
-                    
-            except Exception as e:
-                print(f"Failed to append to {archive_file_path}: {e}")  # Print any exception
-
-            # Show a popup message to confirm saving
-            sg.popup('Saved!', 'Your notes have been saved successfully.')
-
-            # Disable the SAVE button after saving
-            notes_window['-SAVE-'].update(disabled=True)
-
-        elif notes_event == 'CLEAR':
-            # Clear the notes in the window and enable the 'SAVE' button
-            notes_window['-NOTES-'].update('')
-            notes_window['-SAVE-'].update(disabled=False)
+                with open('/Users/georgiostrialonis/new-repo/Data/notes-taken.txt', 'r') as file:
+                    notes_list = file.readlines()
+                    notes_window['-NOTES-LIST-'].update([f"{idx+1}: {note.strip()}" for idx, note in enumerate(notes_list)])
+            except FileNotFoundError:
+                sg.popup('Error reloading notes.', keep_on_top=True)
 
     notes_window.close()
+
 
 def display_archive(location=(300, 70)):
     archive_window_layout = [
@@ -249,7 +247,7 @@ main_layout = [
     [sg.Text('Type your to-do-Task and hit "Add Task" to save')],
     [
         sg.Input(
-            size=(50, 4), font=("Times New Roman", 14), key="task", do_not_clear=False
+            size=(50, 4), font=("Tahoma", 15), key="task", do_not_clear=False
         )
     ],
     [

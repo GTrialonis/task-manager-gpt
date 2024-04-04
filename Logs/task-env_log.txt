@@ -19,7 +19,7 @@ PYTHONIOENCODING: UTF-8
 OLDPWD: /
 USER: georgiostrialonis
 TMPDIR: /var/folders/8t/_4mbgx3d6yl3r8n7mry8jh940000gn/T/
-SSH_AUTH_SOCK: /private/tmp/com.apple.launchd.EC1pqhuUB1/Listeners
+SSH_AUTH_SOCK: /private/tmp/com.apple.launchd.FR3Ed6B9rR/Listeners
 _CE_CONDA: 
 XPC_FLAGS: 0x0
 PYTHONUNBUFFERED: 1

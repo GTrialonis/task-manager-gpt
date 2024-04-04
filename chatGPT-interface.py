@@ -87,8 +87,9 @@ else:
     index = VectorStoreIndexWrapper(vectorstore=vectorstore)
     # loader = TextLoader("data/cat.pdf")  # Use this line if you only need data.txt
     # Initialize with a default file or an empty string if you don't want to load a file at startup
-    filename = "/Users/georgiostrialonis/new-repo/Data/notes-taken.txt"  # This is your default file to start with
-    loader = TextLoader("/Users/georgiostrialonis/new-repo/Data/archived_tasks.txt") # choose file to interrogate
+    filename = "/Users/georgiostrialonis/new-repo/Data/notes-taken.txt"  # This is the default file to start with
+    # chatbot interaction
+    # loader = TextLoader("/Users/georgiostrialonis/new-repo/Data/archived_tasks.txt") # choose file to interrogate
     # loader = DirectoryLoader("data/data.txt")
 
     # Before the event loop
@@ -96,7 +97,7 @@ loader = None
 if not filename:
     pass
 else:
-    print('filename: ', filename)
+    print('filename: ', os.path.basename(filename))
     loader = TextLoader(filename)
     if PERSIST:
         index = VectorstoreIndexCreator(
@@ -263,9 +264,11 @@ while True:
                         temp_file.write(text_content)
                     loader = TextLoader(temp_filename)
                 except Exception as e:
+                    print('file type is: ', filename)  # <----- check this for debugging
                     sg.popup_error(f'Failed to process Excel document: {e}')
-            else:
-                sg.popup_error(f'Unsupported file type selected.')
+                else:
+                    print('file type is: ', filename)  # <----- check this for debugging
+                    sg.popup_error(f'Unsupported file type selected.')
 # --------------------------- να το αφαιρέσω; -----------------------------------
         else:
             # Your existing processing for .txt and .pdf files
