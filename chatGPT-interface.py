@@ -209,7 +209,7 @@ while True:
     # Save chat responses to a file
     if event == '-SAVE-':
         responses = values['-OUTPUT-']
-        with open('/Users/georgiostrialonis/new-repo/chat_responses.txt', 'a') as file:
+        with open('/Users/georgiostrialonis/new-repo/chat_history.txt', 'a') as file:
             file.write(responses)
         sg.popup('Responses saved!', keep_on_top=True)
 
