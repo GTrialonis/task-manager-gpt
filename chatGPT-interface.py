@@ -234,27 +234,27 @@ while True:
                     loader = TextLoader(temp_filename)
                 except Exception as e:
                     sg.popup_error(f'Failed to process Word document: {e}')
-# ---------------------------------------------------------------------
-#             elif filename.lower().endswith('.pdf'):
-#
-#                 try:
-#                     text_content = extract_text_from_pdf(filename)
-#                     temp_filename = '/Users/georgiostrialonis/new-repo/temp_extracted_text.txt'
-#                     with open(temp_filename, 'w', encoding='utf-8') as temp_file:
-#                         temp_file.write(text_content)
-#                     loader = TextLoader(temp_filename)
-#                 except Exception as e:
-#                     print(f'Failed to process PDF document: {e}')
-#                     traceback.print_exc()  # Print the full traceback
-# -----------------------------------------------------------------------------
-#             # Process the .txt file
-#             elif filename.lower().endswith('.txt'):
-#                 try:
-#                     # For .txt files, directly use the TextLoader with the file path
-#                     loader = TextLoader(filename)
-#                 except Exception as e:
-#                     sg.popup_error(f'Failed to process text file: {e}')
-# ---------------------------------------------------------------------------------
+
+            elif filename.lower().endswith('.pdf'):
+
+                try:
+                    text_content = extract_text_from_pdf(filename)
+                    temp_filename = '/Users/georgiostrialonis/new-repo/temp_extracted_text.txt'
+                    with open(temp_filename, 'w', encoding='utf-8') as temp_file:
+                        temp_file.write(text_content)
+                    loader = TextLoader(temp_filename)
+                except Exception as e:
+                    print(f'Failed to process PDF document: {e}')
+                    traceback.print_exc()  # Print the full traceback
+
+            # Process the .txt file
+            elif filename.lower().endswith('.txt'):
+                try:
+                    # For .txt files, directly use the TextLoader with the file path
+                    loader = TextLoader(filename)
+                except Exception as e:
+                    sg.popup_error(f'Failed to process text file: {e}')
+
             # Process the .xlsx file
             elif filename.lower().endswith('.xlsx'):
                 try:
@@ -269,11 +269,11 @@ while True:
                 else:
                     print('file type is: ', filename)  # <----- check this for debugging
                     sg.popup_error(f'Unsupported file type selected.')
-# --------------------------- να το αφαιρέσω; -----------------------------------
+
         else:
             # Your existing processing for .txt and .pdf files
             loader = TextLoader(filename)
-# -------------------------------------------------------------
+
         # Re-create the index with the new loader
         if PERSIST:
             index = VectorstoreIndexCreator(
