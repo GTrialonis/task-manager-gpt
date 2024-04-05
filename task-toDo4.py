@@ -1,7 +1,8 @@
 #!/Users/georgiostrialonis/anaconda3/anaconda3/envs/langCh/bin/py
 import sys
+
 sys.path.append('/Users/georgiostrialonis/new-repo')
-import subprocess # --- new line
+import subprocess  # --- new line
 import PySimpleGUI as sg
 import json
 from datetime import datetime
@@ -27,6 +28,7 @@ def load_tasks():
     except FileNotFoundError:
         return []
 
+
 def load_archive_done_tasks():
     try:
         with open("/Users/georgiostrialonis/new-repo/arch_tasks_done.txt", "r") as file:
@@ -36,14 +38,16 @@ def load_archive_done_tasks():
     except FileNotFoundError:
         return []
 
+
 def save_tasks():
     with open("/Users/georgiostrialonis/new-repo/task_list2.txt", "w") as file:
         file.write(json.dumps(tasks))  # Overwrite the file
 
+
 def display_tasks():
     task_str = "\n".join(
         [
-            f"{i+1}. {task['description']} - {task['status']}"
+            f"{i + 1}. {task['description']} - {task['status']}"
             for i, task in enumerate(tasks)
         ]
     )
@@ -52,6 +56,7 @@ def display_tasks():
 
 def clear_multiline_window():
     window["tasks_multiline"].update("")
+
 
 def search_weather(city):
     apiUrl = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apiKey}&units=metric"
@@ -77,12 +82,15 @@ def search_weather(city):
         print("Error: Response is not in JSON format.")
         return "Error: Invalid response format."
 
+
 def delete_archive(archive_window):
     with open("/Users/georgiostrialonis/new-repo/arch_tasks_done.txt", "w") as file:
         file.write(json.dumps([]))
     archive_window["-DONE-"].update("Archive Deleted permanently")
     archive_window["-DONE-"].update("")
-### --------- DISPLAY NOTES -------------------------
+
+
+## --------- DISPLAY NOTES -------------------------
 def display_notes(location=(600, 100)):
     # Initial setup: Load existing notes
     try:
@@ -94,7 +102,7 @@ def display_notes(location=(600, 100)):
 
     notes_layout = [
         [sg.Text("Select a note to edit:", font=("Default", 13))],
-        [sg.Listbox(values=[f"{idx+1}: {note.strip()}" for idx, note in enumerate(notes_list)],
+        [sg.Listbox(values=[f"{idx + 1}: {note.strip()}" for idx, note in enumerate(notes_list)],
                     size=(90, 15), font=("Tahoma", 14), key="-NOTES-LIST-", enable_events=True)],
         [sg.Text("Add a new note:", font=("Default", 13))],
         [sg.Multiline(size=(90, 3), font=("Tahoma", 14), key="-NEW-NOTE-", enable_events=True)],
@@ -138,7 +146,8 @@ def display_notes(location=(600, 100)):
             try:
                 with open('/Users/georgiostrialonis/new-repo/Data/notes-taken.txt', 'r') as file:
                     notes_list = file.readlines()
-                    notes_window['-NOTES-LIST-'].update([f"{idx+1}: {note.strip()}" for idx, note in enumerate(notes_list)])
+                    notes_window['-NOTES-LIST-'].update(
+                        [f"{idx + 1}: {note.strip()}" for idx, note in enumerate(notes_list)])
             except FileNotFoundError:
                 sg.popup('Error reloading notes.', keep_on_top=True)
 
@@ -158,7 +167,7 @@ def display_archive(location=(300, 70)):
 
     # Add this block to update the task list immediately when the window opens
     done_task_str = "\n".join(
-        [f"{i+1}. {done_task['description']}" for i, done_task in enumerate(archive)]
+        [f"{i + 1}. {done_task['description']}" for i, done_task in enumerate(archive)]
     )
     archive_window["-DONE-"].update(done_task_str)
 
@@ -194,7 +203,7 @@ def display_archive(location=(300, 70)):
 
             # Convert list to a single string with new lines
             archived_task_deleted_string = "\n".join(
-                [f"{idx+1}. {task['description']}" for idx, task in enumerate(archive)]
+                [f"{idx + 1}. {task['description']}" for idx, task in enumerate(archive)]
             )
 
             # Then update your GUI element with this new string
@@ -216,7 +225,7 @@ def display_archive(location=(300, 70)):
                         ] = new_task_done_description
                         # Save edited archive
                         with open(
-                            "/Users/georgiostrialonis/new-repo/arch_tasks_done.txt", "w"
+                                "/Users/georgiostrialonis/new-repo/arch_tasks_done.txt", "w"
                         ) as f:
                             json.dump(archive, f)
                         # ------ OPTIONAL LINES ------
@@ -232,13 +241,14 @@ def display_archive(location=(300, 70)):
                     sg.popup_error("Invalid input. Please enter a valid number!")
 
             archived_task_strings = "\n".join(
-                [f"{idx+1}. {task['description']}" for idx, task in enumerate(archive)]
+                [f"{idx + 1}. {task['description']}" for idx, task in enumerate(archive)]
             )
 
             # Then update your GUI element with this new string
             archive_window["-DONE-"].update(archived_task_strings)
 
     archive_window.close()
+
 
 tasks = load_tasks()
 archive = load_archive_done_tasks()
@@ -269,9 +279,9 @@ main_layout = [
     ],
 ]
 
-window = sg.Window("Things I should do", main_layout, location=(50,50), finalize=True)
+window = sg.Window("Things I should do", main_layout, location=(50, 50), finalize=True)
+display_tasks()
 window.bind("<Return>", "Enter")
-
 
 while True:
     event, values = window.read()
@@ -282,24 +292,24 @@ while True:
 
     if event == "NOTES":
         display_notes()
-# ***** ------------------- LANGCHAIN ------ ********
+    # ***** ------------------- LANGCHAIN ------ ********
     if event == "LangChain":
         with open('/Users/georgiostrialonis/new-repo/Logs/task-toDo4-error-log.txt', 'a') as f:
             f.write("LangChain button was clicked.\n")
 
-    # Log information about the environment
+        # Log information about the environment
         with open('/Users/georgiostrialonis/new-repo/Logs/task-toDo4-logfile.txt', 'w') as f:
             f.write(f"Current Conda environment: {os.environ.get('CONDA_DEFAULT_ENV', 'No active environment')}\n")
         with open('/Users/georgiostrialonis/new-repo/Logs/task-env_log.txt', 'w') as f:
             for key, value in os.environ.items():
                 f.write(f"{key}: {value}\n")
 
-    # Now launch chatGPT-interface.py
+        # Now launch chatGPT-interface.py
         process = subprocess.Popen(
-    ['/bin/bash', '-c', 'python3 /Users/georgiostrialonis/new-repo/chatGPT-interface.py'],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE
-)
+            ['/bin/bash', '-c', 'python3 /Users/georgiostrialonis/new-repo/chatGPT-interface.py'],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE
+        )
         # ---- This can also be removed. Used for debugging----
         stdout, stderr = process.communicate()
         with open('/Users/georgiostrialonis/new-repo/Logs/task-toDo4-output-log.txt', 'wb') as f:
@@ -330,8 +340,8 @@ while True:
                 weather_info_shared = None
 
         popup_window.close()
-# ---- End of weather extraction section --------------- 
-        
+    # ---- End of weather extraction section ---------------
+
     if event == "Clear Multiline Window":
         clear_multiline_window()
 

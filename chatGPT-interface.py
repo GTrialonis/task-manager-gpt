@@ -22,6 +22,7 @@ os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 vectorstore = None
 index = None
 filename = None
+loader = None
 
 # Add these paths at the start of your script
 ARCHIVED_TASKS_FILE = '/Users/georgiostrialonis/new-repo/Data/archived_tasks.txt'
@@ -90,14 +91,13 @@ else:
     filename = "/Users/georgiostrialonis/new-repo/Data/notes-taken.txt"  # This is the default file to start with
     # chatbot interaction
     # loader = TextLoader("/Users/georgiostrialonis/new-repo/Data/archived_tasks.txt") # choose file to interrogate
-    # loader = DirectoryLoader("data/data.txt")
+    # loader = DirectoryLoader("data/") #  load all files in the 'data' folder
 
     # Before the event loop
-loader = None
+# loader = None
 if not filename:
     pass
 else:
-    print('filename: ', os.path.basename(filename))
     loader = TextLoader(filename)
     if PERSIST:
         index = VectorstoreIndexCreator(
