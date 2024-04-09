@@ -26,44 +26,40 @@ loader = None
 
 # Add these paths at the start of your script
 ARCHIVED_TASKS_FILE = '/Users/georgiostrialonis/new-repo/Data/archived_tasks.txt'
-NOTES_TAKEN_FILE = '/Users/georgiostrialonis/new-repo/Data/notes-taken.txt'
+MEMORY_FILE = '/Users/georgiostrialonis/new-repo/Data/chat_history.txt'
+
 
 def extract_text_from_pdf(pdf_path):
     with pdfplumber.open(pdf_path) as pdf:
-        text = ''
+        pdf_text_content = ''
         for page in pdf.pages:
-            text += page.extract_text() or ''
-        return text
+            pdf_text_content += page.extract_text() or ''
+        return pdf_text_content
 
 
 def docx_to_txt(file_path):
-    # Load the .docx file with python-docx
     doc = Document(file_path)
-    # Combine all the text from the document into a single string
-    return '\n'.join([paragraph.text for paragraph in doc.paragraphs])
+    doc_text_content = '\n'.join([paragraph.text for paragraph in doc.paragraphs])
+    return doc_text_content
 
 
 def xlsx_to_text(file_path):
-    # Read the Excel file
     xls = pd.ExcelFile(file_path)
-
-    text_content = ''
+    xls_text_content = ''
     for sheet_name in xls.sheet_names:
         df = pd.read_excel(file_path, sheet_name=sheet_name)
-        # Convert the DataFrame to a text string
-        text_content += f"Sheet: {sheet_name}\n{df.to_string(index=False)}\n\n"
-
-    return text_content
+        xls_text_content += f"Sheet: {sheet_name}\n{df.to_string(index=False)}\n\n"
+    return xls_text_content
 
 
 # Function to simulate interaction with ChatGPT
-def interact_with_chatgpt(query, chat_history, index):
+def interact_with_chatgpt(query_input, chat_history_input, index_input):
     # Create the chain with the selected model each time
-    chain = ConversationalRetrievalChain.from_llm(
+    chat_chain = ConversationalRetrievalChain.from_llm(
         llm=ChatOpenAI(model="gpt-4-1106-preview"),
-        retriever=index.vectorstore.as_retriever(search_kwargs={"k": 1}),
+        retriever=index_input.vectorstore.as_retriever(search_kwargs={"k": 1}),
     )
-    result = chain({"question": query, "chat_history": chat_history})  # GPT's answer
+    result = chat_chain({"question": query_input, "chat_history": chat_history_input})  # GPT's answer
     return result["answer"]
 
 
@@ -86,32 +82,26 @@ else:
     # For example:
     vectorstore = Chroma(embedding_function=OpenAIEmbeddings())
     index = VectorStoreIndexWrapper(vectorstore=vectorstore)
-    # loader = TextLoader("data/cat.pdf")  # Use this line if you only need data.txt
     # Initialize with a default file or an empty string if you don't want to load a file at startup
     filename = "/Users/georgiostrialonis/new-repo/Data/notes-taken.txt"  # This is the default file to start with
     # chatbot interaction
-    # loader = TextLoader("/Users/georgiostrialonis/new-repo/Data/archived_tasks.txt") # choose file to interrogate
-    # loader = DirectoryLoader("data/") #  load all files in the 'data' folder
+    # loader = DirectoryLoader("Data/") #  load all files in the 'data' folder
 
-    # Before the event loop
-# loader = None
 if not filename:
     pass
 else:
     loader = TextLoader(filename)
-    if PERSIST:
-        index = VectorstoreIndexCreator(
-            vectorstore_kwargs={"persist_directory": "persist"}
-        ).from_loaders([loader])
-    else:
-        index = VectorstoreIndexCreator().from_loaders([loader])
+    print(filename)
+    index_creator = VectorstoreIndexCreator(
+        vectorstore_kwargs={"persist_directory": "persist"} if PERSIST else {}
+    )
+    index = index_creator.from_loaders([loader])
 
-chain = ConversationalRetrievalChain.from_llm(
-    llm=ChatOpenAI(model="gpt-4-1106-preview"),
-    retriever=index.vectorstore.as_retriever(search_kwargs={"k": 1}),
-)
+    chain = ConversationalRetrievalChain.from_llm(
+        llm=ChatOpenAI(model="gpt-4-1106-preview"),
+        retriever=index.vectorstore.as_retriever(search_kwargs={"k": 1}),
+    )
 
-chat_history = []
 
 # Define the theme
 sg.theme('BrownBlue')
@@ -135,11 +125,13 @@ layout = [
      ])],
     [sg.InputText(key='-PROMPT-', size=(80, 1), do_not_clear=False, enable_events=True, font=("Helvetica", 15))],
     [sg.Button('Send', font=('Helvetica', 14), size=(5, 1), bind_return_key=True), sg.Button("Clear File Selected",
-                                font=('Helvetica', 14), size=(15, 1), key='-CLEARFILE-', button_color=('White', 'Brown')),
-     sg.Button('Create Encryption Key', font=('Helvetica', 14), size=(19, 1), button_color=('white', 'green'), key='-ENCRYPTION-'),
+                            font=('Helvetica', 14), size=(15, 1), key='-CLEARFILE-', button_color=('White', 'Brown')),
+     sg.Button('Create Encryption Key', font=('Helvetica', 14), size=(19, 1), button_color=('white', 'green'),
+               key='-ENCRYPTION-'),
      sg.Text('Ask:', font=("Helvetica", 14)),
-     sg.Button('Archived Tasks', font=('Helvetica', 14), size=(13, 1), button_color=('Black', 'LightGrey'), key='-ASK_ARCHIVED-'),
-     sg.Button('Notes', font=('Helvetica', 14), size=(7, 1), button_color=('Black', 'LightGrey'), key='-ASK_NOTES-')
+     sg.Button('Archived Tasks', font=('Helvetica', 14), size=(13, 1), button_color=('Black', 'LightGrey'),
+               key='-ASK_ARCHIVED-'),
+     sg.Button('Memory', font=('Helvetica', 14), size=(7, 1), button_color=('Black', 'LightGrey'), key='-ASK_MEMORY-')
      ],
 
 ]
@@ -182,7 +174,7 @@ while True:
         # Get the user's input
         prompt = values['-PROMPT-']
         # Send the prompt to the ChatGPT interaction function
-        response = interact_with_chatgpt(prompt, chat_history, index) # <-------------------
+        response = interact_with_chatgpt(prompt, chat_history, index)
         # Append the response to the chat history
         chat_history.append((prompt, response))
         # Update the output Multiline with the response
@@ -198,8 +190,8 @@ while True:
         loader = TextLoader(filename)  # Update your loader with the new file
         # Additional code to interact with the file...
 
-    if event == '-ASK_NOTES-':
-        filename = NOTES_TAKEN_FILE
+    if event == '-ASK_MEMORY-':
+        filename = MEMORY_FILE
         window['-FILE-'].update(filename)  # Just the filename for display
         loader = TextLoader(filename)  # Update your loader with the new file
 
@@ -217,19 +209,19 @@ while True:
     # File selection
     if event == '-SELECT-':
         chosen_file = sg.popup_get_file('Select a file', no_window=True, file_types=(
-        ("All Files", "*.*"), ("Text Files", "*.txt"), ("Exel Documents", "*.xlsx"), ("Word Documents", "*.docx"),
-        ("PDF Files", "*.pdf")))
+            ("All Files", "*.*"), ("Text Files", "*.txt"), ("Exel Documents", "*.xlsx"),
+            ("Word Documents", "*.docx"), ("PDF Files", "*.pdf")))
         if chosen_file:
             filename = chosen_file
             window['-FILE-'].update(filename)
 
             if filename.lower().endswith('.docx'):
                 try:
-                    text_content = docx_to_txt(filename)
+                    file_text_content = docx_to_txt(filename)
                     # system expects a file path
                     temp_filename = '/Users/georgiostrialonis/new-repo/temp_extracted_text.txt'
                     with open(temp_filename, 'w', encoding='utf-8') as temp_file:
-                        temp_file.write(text_content)
+                        temp_file.write(file_text_content)
                     # Now update your loader to use the temporary file
                     loader = TextLoader(temp_filename)
                 except Exception as e:
@@ -238,10 +230,10 @@ while True:
             elif filename.lower().endswith('.pdf'):
 
                 try:
-                    text_content = extract_text_from_pdf(filename)
+                    file_text_content = extract_text_from_pdf(filename)
                     temp_filename = '/Users/georgiostrialonis/new-repo/temp_extracted_text.txt'
                     with open(temp_filename, 'w', encoding='utf-8') as temp_file:
-                        temp_file.write(text_content)
+                        temp_file.write(file_text_content)
                     loader = TextLoader(temp_filename)
                 except Exception as e:
                     print(f'Failed to process PDF document: {e}')
@@ -252,16 +244,17 @@ while True:
                 try:
                     # For .txt files, directly use the TextLoader with the file path
                     loader = TextLoader(filename)
+                    print('The .txt file is: ', filename)
                 except Exception as e:
                     sg.popup_error(f'Failed to process text file: {e}')
 
             # Process the .xlsx file
             elif filename.lower().endswith('.xlsx'):
                 try:
-                    text_content = xlsx_to_text(filename)
+                    file_text_content = xlsx_to_text(filename)
                     temp_filename = '/Users/georgiostrialonis/new-repo/temp_extracted_text.txt'
                     with open(temp_filename, 'w', encoding='utf-8') as temp_file:
-                        temp_file.write(text_content)
+                        temp_file.write(file_text_content)
                     loader = TextLoader(temp_filename)
                 except Exception as e:
                     print('file type is: ', filename)  # <----- check this for debugging
