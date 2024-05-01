@@ -1,7 +1,7 @@
 /Users/georgiostrialonis/anaconda3/anaconda3/envs/langCh/lib/python3.11/site-packages/langchain_core/_api/deprecation.py:117: LangChainDeprecationWarning: The class `langchain_community.embeddings.openai.OpenAIEmbeddings` was deprecated in langchain-community 0.1.0 and will be removed in 0.2.0. Use langchain_openai.OpenAIEmbeddings instead.
   warn_deprecated(
+2024-04-11 22:14:27.754 python3[11491:239862] TSM AdjustCapsLockLEDForKeyTransitionHandling - _ISSetPhysicalKeyboardCapsLockLED Inhibit
 /Users/georgiostrialonis/anaconda3/anaconda3/envs/langCh/lib/python3.11/site-packages/langchain_core/_api/deprecation.py:117: LangChainDeprecationWarning: The class `langchain_community.chat_models.openai.ChatOpenAI` was deprecated in langchain-community 0.1.0 and will be removed in 0.2.0. Use langchain_openai.ChatOpenAI instead.
   warn_deprecated(
-2024-04-09 15:53:54.598 python3[4144:90301] TSM AdjustCapsLockLEDForKeyTransitionHandling - _ISSetPhysicalKeyboardCapsLockLED Inhibit
 /Users/georgiostrialonis/anaconda3/anaconda3/envs/langCh/lib/python3.11/site-packages/langchain_core/_api/deprecation.py:117: LangChainDeprecationWarning: The function `__call__` was deprecated in LangChain 0.1.0 and will be removed in 0.2.0. Use invoke instead.
   warn_deprecated(

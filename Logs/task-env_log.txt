@@ -3,7 +3,7 @@ COMMAND_MODE: unix2003
 __CFBundleIdentifier: com.apple.automator.new-task-manager
 PATH: /Users/georgiostrialonis/anaconda3/anaconda3/envs/langCh/bin:/Users/georgiostrialonis/anaconda3/anaconda3/condabin:/Users/georgiostrialonis/.cargo/bin:/usr/bin:/bin:/usr/sbin:/sbin
 LOGNAME: georgiostrialonis
-SSH_AUTH_SOCK: /private/tmp/com.apple.launchd.uVe9cyiYSY/Listeners
+SSH_AUTH_SOCK: /private/tmp/com.apple.launchd.sQEYWdt5uo/Listeners
 HOME: /Users/georgiostrialonis
 SHELL: /bin/zsh
 TMPDIR: /var/folders/8t/_4mbgx3d6yl3r8n7mry8jh940000gn/T/

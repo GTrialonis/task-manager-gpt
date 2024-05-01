@@ -7,10 +7,9 @@ import pyperclip
 from datetime import datetime
 from docx import Document
 import pandas as pd
-from langchain.chains import ConversationalRetrievalChain
+from langchain.chains import ConversationalRetrievalChain, RetrievalQA
 from langchain_community.chat_models import ChatOpenAI
-from langchain_community.document_loaders import TextLoader
-# from langchain_openai import OpenAIEmbeddings
+from langchain_community.document_loaders import DirectoryLoader, TextLoader
 from langchain_community.embeddings import OpenAIEmbeddings  # this will be deprecated? Use the above instead?
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
@@ -28,28 +27,32 @@ loader = None
 ARCHIVED_TASKS_FILE = '/Users/georgiostrialonis/new-repo/Data/archived_tasks.txt'
 MEMORY_FILE = '/Users/georgiostrialonis/new-repo/Data/chat_history.txt'
 
-
 def extract_text_from_pdf(pdf_path):
     with pdfplumber.open(pdf_path) as pdf:
-        pdf_text_content = ''
+        text = ''
         for page in pdf.pages:
-            pdf_text_content += page.extract_text() or ''
-        return pdf_text_content
+            text += page.extract_text() or ''
+        return text
 
 
 def docx_to_txt(file_path):
+    # Load the .docx file with python-docx
     doc = Document(file_path)
-    doc_text_content = '\n'.join([paragraph.text for paragraph in doc.paragraphs])
-    return doc_text_content
+    # Combine all the text from the document into a single string
+    return '\n'.join([paragraph.text for paragraph in doc.paragraphs])
 
 
 def xlsx_to_text(file_path):
+    # Read the Excel file
     xls = pd.ExcelFile(file_path)
-    xls_text_content = ''
+
+    text_content = ''
     for sheet_name in xls.sheet_names:
         df = pd.read_excel(file_path, sheet_name=sheet_name)
-        xls_text_content += f"Sheet: {sheet_name}\n{df.to_string(index=False)}\n\n"
-    return xls_text_content
+        # Convert the DataFrame to a text string
+        text_content += f"Sheet: {sheet_name}\n{df.to_string(index=False)}\n\n"
+
+    return text_content
 
 
 # Function to simulate interaction with ChatGPT
@@ -64,29 +67,26 @@ def interact_with_chatgpt(query_input, chat_history_input, index_input):
 
 
 # Enable to save to disk & reuse the model (for repeated queries on the same data)
-PERSIST = False  # Originally it was "False"
+PERSIST = True  # Originally it was "False"
 query = None
 
 if len(sys.argv) > 1:
     query = sys.argv[1]
 
-# Then, later in your script, when you check for persistence:
 if PERSIST and os.path.exists("persist"):
     vectorstore = Chroma(
         persist_directory="persist", embedding_function=OpenAIEmbeddings()
     )
     index = VectorStoreIndexWrapper(vectorstore=vectorstore)
-
 else:
-    # Your alternative setup for vectorstore
-    # For example:
     vectorstore = Chroma(embedding_function=OpenAIEmbeddings())
     index = VectorStoreIndexWrapper(vectorstore=vectorstore)
     # Initialize with a default file or an empty string if you don't want to load a file at startup
-    filename = "/Users/georgiostrialonis/new-repo/Data/notes-taken.txt"  # This is the default file to start with
-    # chatbot interaction
-    # loader = DirectoryLoader("Data/") #  load all files in the 'data' folder
+    filename = "/Users/georgiostrialonis/new-repo/Data/notes-taken.txt"  # This is your default file to start with
+    # loader = TextLoader("data/myPoems.txt") # choose file to interrogate
+    # loader = DirectoryLoader("data/data.txt")
 
+    # Before the event loop
 if not filename:
     pass
 else:
@@ -113,8 +113,8 @@ current_date = datetime.now().strftime("%Y-%m-%d")
 layout = [
     [sg.Text(current_date, key='-DATE-', pad=(5, 10), font=("Helvetica", 12))],
     [sg.Text('Select chatGPT model', font=("Helvetica", 12)),
-     sg.Combo(['gpt-4-turbo-preview', 'gpt-4', 'gpt-3.5-turbo-16k'],
-              key='-MODEL-', default_value='gpt-4-turbo-preview', enable_events=False),
+     sg.Combo(['gpt-4-1106-preview', 'gpt-4', 'gpt-3.5-turbo-16k'],
+              key='-MODEL-', default_value='gpt-4-1106-preview', enable_events=False),
      sg.B('Select File', key="-SELECT-"), sg.Text("No file selected", key='-FILE-')],
     [sg.Multiline(key='-OUTPUT-', size=(80, 15), autoscroll=True, disabled=True, font=("Helvetica", 16)),
      sg.Column([
@@ -122,18 +122,23 @@ layout = [
          [sg.Button('Save', font=('Helvetica', 16), size=(6, 1), key='-SAVE-')],
          [sg.Button('Exit', font=('Helvetica', 16), size=(6, 1), key='-EXIT-')],
          [sg.Button('Clear', font=('Helvetica', 16), size=(6, 1), key='-CLEAR-', button_color=('white', 'brown'))],
+         # [sg.Button('', image_filename='/Users/georgiostrialonis/new-repo/Gmail-Logo-2004-2010.png', key='-GMAIL-', tooltip='Search & Send Gmail')],
+
      ])],
     [sg.InputText(key='-PROMPT-', size=(80, 1), do_not_clear=False, enable_events=True, font=("Helvetica", 15))],
     [sg.Button('Send', font=('Helvetica', 14), size=(5, 1), bind_return_key=True), sg.Button("Clear File Selected",
-                            font=('Helvetica', 14), size=(15, 1), key='-CLEARFILE-', button_color=('White', 'Brown')),
-     sg.Button('Create Encryption Key', font=('Helvetica', 14), size=(19, 1), button_color=('white', 'green'),
+                                                                                             font=('Helvetica', 14),
+                                                                                             size=(15, 1),
+                                                                                             key='-CLEARFILE-',
+                                                                                             button_color=(
+                                                                                             'White', 'Brown'))],
+    [sg.Button('Create Encryption Key', font=('Helvetica', 14), size=(19, 1), button_color=('white', 'green'),
                key='-ENCRYPTION-'),
      sg.Text('Ask:', font=("Helvetica", 14)),
      sg.Button('Archived Tasks', font=('Helvetica', 14), size=(13, 1), button_color=('Black', 'LightGrey'),
                key='-ASK_ARCHIVED-'),
      sg.Button('Memory', font=('Helvetica', 14), size=(7, 1), button_color=('Black', 'LightGrey'), key='-ASK_MEMORY-')
      ],
-
 ]
 
 # Create the window
@@ -145,6 +150,7 @@ window['-PROMPT-'].TKEntry.focus_force()
 
 # This will hold the conversation history
 chat_history = []
+
 
 # Event loop
 while True:
@@ -165,11 +171,11 @@ while True:
         selected_model = values['-MODEL-']
         # Map the selection to the actual model names used by OpenAI
         model_map = {
-            'gpt-4-turbo-preview': 'gpt-4-turbo-preview',
+            'gpt-4-1106-preview': 'gpt-4-1106-preview',
             'gpt-4': 'gpt-4',
             'gpt-3.5-turbo-16k': 'gpt-3.5-turbo-16k'
         }
-        actual_model = model_map.get(selected_model, 'gpt-4-turbo-preview')
+        actual_model = model_map.get(selected_model, 'gpt-4-1106-preview')
 
         # Get the user's input
         prompt = values['-PROMPT-']
@@ -257,10 +263,8 @@ while True:
                         temp_file.write(file_text_content)
                     loader = TextLoader(temp_filename)
                 except Exception as e:
-                    print('file type is: ', filename)  # <----- check this for debugging
                     sg.popup_error(f'Failed to process Excel document: {e}')
                 else:
-                    print('file type is: ', filename)  # <----- check this for debugging
                     sg.popup_error(f'Unsupported file type selected.')
 
         else:
@@ -276,7 +280,7 @@ while True:
             index = VectorstoreIndexCreator().from_loaders([loader])
         # Update the chain if necessary
         chain = ConversationalRetrievalChain.from_llm(
-            llm=ChatOpenAI(model="gpt-4-turbo-preview"),
+            llm=ChatOpenAI(model="gpt-4-1106-preview"),
             retriever=index.vectorstore.as_retriever(search_kwargs={"k": 1}),
         )
     # CLEAR file name
